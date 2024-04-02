@@ -4,7 +4,7 @@
 
 <template>
 <Section>
-  <h1>Welcome to the Home Page</h1>
+  <h1>Welcome to the Home Page !!!</h1>
 </Section>
 </template>
 
