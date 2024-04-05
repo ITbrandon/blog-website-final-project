@@ -10,16 +10,18 @@ if(user.value === null)
 
 const { data: blog_post } = await useAsyncData('post', async () => {
   let { data: post, error } = await client.from('blog_post').select('title, content');
+  console.log(post)
   return post;
 });
+
 </script>
 
 <template>
 <section>
   <article v-for="(post,i) in blog_post" :key="i">
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p>
-    <Icon name="mdi:heart" class="icon"/>
+    <NuxtLink :to="post.title"><h2>{{ post.title }}</h2></NuxtLink>
+    <!-- <p>{{ post.content }}</p> -->
+    <!-- <Icon name="mdi:heart" class="icon"/> -->
   </article>
 </section>
 </template>
@@ -59,5 +61,15 @@ p {
 
 .liked {
   color: red;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+a:hover {
+  color: rgba(0, 0, 0, 0.505)
 }
 </style>
